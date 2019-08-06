@@ -180,12 +180,16 @@ The accounts data set doesn't require any mappings.
 ==== Load the data sets
 
 At this point, you're ready to use the Elasticsearch {ref}/docs-bulk.html[bulk]
+
+If elasticsearch and kibana are installed locally, <host> is localhost, <port> is 9200.
+More information on loading data at https://www.elastic.co/guide/en/kibana/7.1/tutorial-load-dataset.html
+
 API to load the data sets:
 
 [source,shell]
-curl -u elastic -H 'Content-Type: application/x-ndjson' -XPOST '<host>:<port>/bank/account/_bulk?pretty' --data-binary @accounts.json
-curl -u elastic -H 'Content-Type: application/x-ndjson' -XPOST '<host>:<port>/shakespeare/_bulk?pretty' --data-binary @shakespeare.json
-curl -u elastic -H 'Content-Type: application/x-ndjson' -XPOST '<host>:<port>/_bulk?pretty' --data-binary @logs.jsonl
+curl -H 'Content-Type: application/x-ndjson' -XPOST '<host>:<port>/bank/account/_bulk?pretty' --data-binary @accounts.json
+curl -H 'Content-Type: application/x-ndjson' -XPOST '<host>:<port>/shakespeare/_bulk?pretty' --data-binary @shakespeare.json
+curl -H 'Content-Type: application/x-ndjson' -XPOST '<host>:<port>/_bulk?pretty' --data-binary @logs.jsonl
 
 Or for Windows users, in Powershell:
 [source,shell]
